@@ -1,17 +1,19 @@
-import { Container, Row, Col, Accordion } from 'react-bootstrap'
+import { Form, Container, Row, Col, Accordion } from 'react-bootstrap'
+
 import BoardCard from './BoardCard'
+import AddBoard from './AddBoard'
+
 const Home = () => {
     return (
         <Container fluid>
             <h1>Natrello</h1>
-            <Row>
-            </Row>
             <Accordion>
-                <BoardCard boardId="0"/>
-                <BoardCard boardId="1"/>
-                <BoardCard boardId="2"/>
-                <BoardCard boardId="3"/>
+                <BoardCard boardId="0" />
+                <BoardCard boardId="1" />
+                <BoardCard boardId="2" />
+                <BoardCard boardId="3" />
             </Accordion>
+            <AddBoard />
         </Container>
     )
 }

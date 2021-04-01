@@ -1,10 +1,13 @@
-import { Container } from 'react-bootstrap'
+import { Container, Col } from 'react-bootstrap'
 
 const List = () => {
     return (
-        <Container>
-            List of items
-        </Container>
+        <Col>
+            <ul>
+                <li>item 1</li>
+                <li>item 2</li>
+            </ul>
+        </Col>
     )
 }
 

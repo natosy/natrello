@@ -1,15 +1,19 @@
-import { Row, Col, Button } from 'react-bootstrap'
+import { Row, Col, Button, Card } from 'react-bootstrap'
 
 import List from './List'
 
 const Board = ({ handleClick }) => {
     return (
-        <Col md={12}>
-            
-            Showing board
-            <List />
-            <Button variant='primary' onClick={handleClick}>Close board</Button>
-        </Col>
+        <Card.Body>
+            <Row>
+                <p>Showing board</p>
+            </Row>
+            <Row>
+                <List />
+                <List />
+                <List />
+            </Row>
+        </Card.Body>
     )
 }
 

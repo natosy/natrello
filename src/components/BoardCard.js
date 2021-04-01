@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { Col, Card, Button, Accordion, AccordionContext, useAccordionToggle } from 'react-bootstrap'
+import Board from './Board'
 
 /**
  * Board Toggle for Accordion which changes text on the button based on whether it is toggled or not.
@@ -35,7 +36,7 @@ const BoardCard = ({ boardId }) => {
                     </Card.Text>
                 <BoardToggle eventKey={boardId} />
                 <Accordion.Collapse eventKey={boardId}>
-                    <Card.Body>Board Body</Card.Body>
+                    <Board />
                 </Accordion.Collapse>
             </Card.Body>
         </Card>
