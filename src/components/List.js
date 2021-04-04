@@ -1,17 +1,24 @@
 import { Col, Row, Form } from 'react-bootstrap'
+import { useState } from 'react'
 
 const List = ({ list, boardId, setBoardData }) => {
 
+    const [description, setDescription] = useState('')
+
     const handleAddListItem = (e) => {
+        // prevents page refresh
         e.preventDefault()
-        const description = e.target.listItem.value
 
-        const boards = JSON.parse(localStorage.getItem('boards'))
-        boards[boardId].lists[list.listId].listItems.push(description)
+    
+        const boardData = JSON.parse(localStorage.getItem('boards'))
+        boardData[boardId].lists[list.listId].listItems.push(description)
 
-        localStorage.setItem('boards', JSON.stringify(boards))
-        setBoardData(boards)
-        console.log(boards)
+        // saves to localstorage
+        localStorage.setItem('boards', JSON.stringify(boardData))
+        setBoardData(boardData)
+
+        // resets field after submitting
+        setDescription('')
     }
 
     return (
@@ -28,7 +35,7 @@ const List = ({ list, boardId, setBoardData }) => {
             </Row>
             <Form onSubmit={handleAddListItem}>
                 <Form.Group controlId='listItem'>
-                    <Form.Control placeholder='New Item' />
+                    <Form.Control value={description} onChange={e => setDescription(e.target.value)} placeholder='New Item' />
                 </Form.Group>
                 <button type='submit'>Add Item</button>
             </Form>

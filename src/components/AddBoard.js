@@ -4,17 +4,21 @@ import { useState } from 'react'
 const AddBoard = ({ setBoardData }) => {
 
     const [error, setError] = useState(false)
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
 
     const handleAddBoardSubmit = (e) => {
+        // prevents page refresh
         e.preventDefault()
-        const title = e.target.title.value
-        if (!title) {
+
+        // checks for empty title (still need to modify error message)
+        if (title === '') {
             console.log(error)
             e.preventDefault()
             setError(true)
             return
         }
-        const description = e.target.description.value
+        
         const boardData = JSON.parse(localStorage.getItem('boards'))
         const newId = boardData[boardData.length - 1].id + 1
         boardData.push({
@@ -39,16 +43,22 @@ const AddBoard = ({ setBoardData }) => {
                 },
             ]
         })
+
+        // saves to localstorage
         localStorage.setItem('boards', JSON.stringify(boardData))
         setBoardData(boardData)
+
+        // resets fields after submitting
+        setTitle('')
+        setDescription('')
     }
     return (
         <Form onSubmit={handleAddBoardSubmit}>
             <Form.Group controlId='title'>
-                <Form.Control placeholder='Title' />
+                <Form.Control value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Title' />
             </Form.Group>
             <Form.Group controlId='description'>
-                <Form.Control placeholder='Description' />
+                <Form.Control value={description} onChange={(e) => setDescription(e.target.value)} placeholder='Description' />
             </Form.Group>
             <button type='submit'>Add Board</button>
             {error ? 'Please enter minimally the board title in order to create a board' : ''}
