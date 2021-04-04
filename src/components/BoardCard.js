@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Col, Card, Button, Accordion, AccordionContext, useAccordionToggle } from 'react-bootstrap'
+import { Card, Accordion, AccordionContext, useAccordionToggle } from 'react-bootstrap'
 import Board from './Board'
 
 /**
@@ -12,7 +12,8 @@ const BoardToggle = ({ children, eventKey, callback }) => {
         eventKey,
         () => callback && callback(eventKey))
 
-    const isCurrentEventKey = currentEventKey == eventKey
+
+    const isCurrentEventKey = currentEventKey === eventKey
 
     return (
         <button type='button' onClick={changeOnClick}>
@@ -24,19 +25,20 @@ const BoardToggle = ({ children, eventKey, callback }) => {
 /**
  * Board Card which shows the board's title, description, and board (when toggled to open)
  */
-const BoardCard = ({ boardData }) => {
+const BoardCard = ({ board, setBoardData }) => {
+
     return (
         <Card>
             <Card.Body>
                 <Card.Title>
-                    {boardData.title}
+                    {board.title}
                 </Card.Title>
                 <Card.Text>
-                    {boardData.description}
+                    {board.description}
                 </Card.Text>
-                <BoardToggle eventKey={boardData.id.toString()} />
-                <Accordion.Collapse eventKey={boardData.id.toString()}>
-                    <Board lists={boardData.lists} />
+                <BoardToggle eventKey={board.id.toString()} />
+                <Accordion.Collapse eventKey={board.id.toString()}>
+                    <Board lists={board.lists} boardId={board.id} setBoardData={setBoardData} />
                 </Accordion.Collapse>
             </Card.Body>
         </Card>

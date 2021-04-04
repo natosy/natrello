@@ -6,14 +6,17 @@ const BoardData =
             "description": "description 1",
             "lists": [
                 {
+                    "listId": 0,
                     "listTitle": "todo",
                     "listItems": ["todo 1", "todo 2", "todo 3"]
                 },
                 {
+                    "listId": 1,
                     "listTitle": "event",
                     "listItems": ["event 1", "event 2", "event 3"]
                 },
                 {
+                    "listId": 2,
                     "listTitle": "deadline",
                     "listItems": ["deadline 1", "deadline 2", "deadline 3"]
                 },
@@ -25,14 +28,17 @@ const BoardData =
             "description": "description 1",
             "lists": [
                 {
+                    "listId": 0,
                     "listTitle": "todo",
                     "listItems": ["todo 1", "todo 2", "todo 3"]
                 },
                 {
+                    "listId": 1,
                     "listTitle": "event",
                     "listItems": ["event 1", "event 2", "event 3"]
                 },
                 {
+                    "listId": 2,
                     "listTitle": "deadline",
                     "listItems": ["deadline 1", "deadline 2", "deadline 3"]
                 },
@@ -44,14 +50,17 @@ const BoardData =
             "description": "description 1",
             "lists": [
                 {
+                    "listId": 0,
                     "listTitle": "todo",
                     "listItems": ["todo 1", "todo 2", "todo 3"]
                 },
                 {
+                    "listId": 1,
                     "listTitle": "event",
                     "listItems": ["event 1", "event 2", "event 3"]
                 },
                 {
+                    "listId": 2,
                     "listTitle": "deadline",
                     "listItems": ["deadline 1", "deadline 2", "deadline 3"]
                 },

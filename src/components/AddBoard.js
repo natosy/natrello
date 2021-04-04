@@ -1,11 +1,12 @@
 import { Form } from 'react-bootstrap'
 import { useState } from 'react'
 
-const AddBoard = ({ boardData, setBoardData }) => {
+const AddBoard = ({ setBoardData }) => {
 
     const [error, setError] = useState(false)
 
     const handleAddBoardSubmit = (e) => {
+        e.preventDefault()
         const title = e.target.title.value
         if (!title) {
             console.log(error)
@@ -14,29 +15,32 @@ const AddBoard = ({ boardData, setBoardData }) => {
             return
         }
         const description = e.target.description.value
+        const boardData = JSON.parse(localStorage.getItem('boards'))
         const newId = boardData[boardData.length - 1].id + 1
-        const newBoardData = boardData
-        newBoardData.push({
+        boardData.push({
             "id": newId,
             "title": title,
             "description": description,
             "lists": [
                 {
+                    "listId": 0,
                     "listTitle": "todo",
                     "listItems": []
                 },
                 {
+                    "listId": 1,
                     "listTitle": "event",
                     "listItems": []
                 },
                 {
+                    "listId": 2,
                     "listTitle": "deadline",
                     "listItems": []
                 },
             ]
         })
-        localStorage.setItem('boards', JSON.stringify(newBoardData))
-        setBoardData(newBoardData)
+        localStorage.setItem('boards', JSON.stringify(boardData))
+        setBoardData(boardData)
     }
     return (
         <Form onSubmit={handleAddBoardSubmit}>
