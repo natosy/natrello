@@ -7,20 +7,20 @@ const BoardData =
             lists: [
                 {
                     listId: 0,
-                    listTitle: "Todo",
+                    listTitle: "To-Do",
                     listItems: [
                         {
                             listId: 0,
                             uniqueId: 0,
-                            description: "Todo 1"
+                            description: "To-Do 1"
                         }, {
                             listId: 0,
                             uniqueId: 1,
-                            description: "Todo 2"
+                            description: "To-Do 2"
                         }, {
                             listId: 0,
                             uniqueId: 2,
-                            description: "Todo 3"
+                            description: "To-Do 3"
                         }
                     ]
                 },
@@ -71,20 +71,20 @@ const BoardData =
             lists: [
                 {
                     listId: 0,
-                    listTitle: "Todo",
+                    listTitle: "To-Do",
                     listItems: [
                         {
                             listId: 0,
                             uniqueId: 0,
-                            description: "Todo 1"
+                            description: "To-Do 1"
                         }, {
                             listId: 0,
                             uniqueId: 1,
-                            description: "Todo 2"
+                            description: "To-Do 2"
                         }, {
                             listId: 0,
                             uniqueId: 2,
-                            description: "Todo 3"
+                            description: "To-Do 3"
                         }
                     ]
                 },
@@ -135,20 +135,20 @@ const BoardData =
             lists: [
                 {
                     listId: 0,
-                    listTitle: "Todo",
+                    listTitle: "To-Do",
                     listItems: [
                         {
                             listId: 0,
                             uniqueId: 0,
-                            description: "Todo 1"
+                            description: "To-Do 1"
                         }, {
                             listId: 0,
                             uniqueId: 1,
-                            description: "Todo 2"
+                            description: "To-Do 2"
                         }, {
                             listId: 0,
                             uniqueId: 2,
-                            description: "Todo 3"
+                            description: "To-Do 3"
                         }
                     ]
                 },

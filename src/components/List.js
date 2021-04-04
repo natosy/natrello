@@ -17,16 +17,15 @@ const List = ({ list, boardId, setBoardData }) => {
         if (listId === newListId) return
 
         const boardData = JSON.parse(localStorage.getItem('boards'))
-        const currentBoardId = boardData.findIndex(b => b.id == boardId)
+        const actualBoardId = boardData.findIndex(b => b.id === boardId)
         console.log(boardId)
-        const actualListId = boardData[currentBoardId].lists.findIndex(l => l.listId === listId)
+        const actualListId = boardData[actualBoardId].lists.findIndex(l => l.listId === listId)
 
         // get current list of items and remove dropped item
-        var listItems = boardData[currentBoardId].lists[actualListId].listItems
-        listItems = listItems.filter((item) => item.uniqueId !== droppedItem.uniqueId)
+        const listItems = boardData[actualBoardId].lists[actualListId].listItems.filter((item) => item.uniqueId !== droppedItem.uniqueId)
 
         // replace list after deleting item 
-        boardData[currentBoardId].lists[actualListId].listItems = listItems
+        boardData[actualBoardId].lists[actualListId].listItems = listItems
         setBoardData(boardData)
         console.log(boardData)
 
@@ -34,15 +33,26 @@ const List = ({ list, boardId, setBoardData }) => {
         console.log(droppedItem)
         droppedItem.listId = newListId
 
-        const actualNewListId = boardData[currentBoardId].lists.findIndex(l => l.listId === newListId)
+        const actualNewListId = boardData[actualBoardId].lists.findIndex(l => l.listId === newListId)
 
         // add updated item into new list
-        boardData[currentBoardId].lists[actualNewListId].listItems.push(droppedItem)
+        boardData[actualBoardId].lists[actualNewListId].listItems.push(droppedItem)
 
         // save deletion and addition into localstorage
         localStorage.setItem('boards', JSON.stringify(boardData))
     }
 
+    // can abstract this into another function as onDrop also requires this functionality
+    const handleDelete = (listId, uniqueId) => {
+        const boardData = JSON.parse(localStorage.getItem('boards'))
+        const actualBoardId = boardData.findIndex(b => b.id === boardId)
+        const actualListId = boardData[actualBoardId].lists.findIndex(l => l.listId === listId)
+        const newList = boardData[actualBoardId].lists[actualListId].listItems.filter((item) => item.uniqueId !== uniqueId)
+        boardData[actualBoardId].lists[actualListId].listItems = newList
+
+        localStorage.setItem('boards', JSON.stringify(boardData))
+        setBoardData(boardData)
+    }
 
     return (
         <Col onDragOver={onDragOver} onDrop={() => onDrop(list.listId)}>
@@ -52,7 +62,7 @@ const List = ({ list, boardId, setBoardData }) => {
                 </h6>
             </Row>
             {list.listItems.map((item, index) => {
-                return <ListItem key={index} item={item} onDragOver={onDragOver} onDrop={onDrop} />
+                return <ListItem key={index} item={item} onDragOver={onDragOver} onDrop={onDrop} handleDelete={handleDelete} />
             })}
             <Row>
                 <AddListItemForm boardId={boardId} listId={list.listId} setBoardData={setBoardData} />

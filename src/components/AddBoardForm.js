@@ -19,8 +19,12 @@ const AddBoardForm = ({ setBoardData }) => {
             return
         }
         
+        setError(false)
+
         const boardData = JSON.parse(localStorage.getItem('boards'))
-        const newId = boardData[boardData.length - 1].id + 1
+        const newId = boardData.length === 0
+            ? 0
+            : boardData[boardData.length - 1].id + 1
         boardData.push({
             "id": newId,
             "title": title,
@@ -28,17 +32,17 @@ const AddBoardForm = ({ setBoardData }) => {
             "lists": [
                 {
                     "listId": 0,
-                    "listTitle": "todo",
+                    "listTitle": "To-Do",
                     "listItems": []
                 },
                 {
                     "listId": 1,
-                    "listTitle": "event",
+                    "listTitle": "In Progress",
                     "listItems": []
                 },
                 {
                     "listId": 2,
-                    "listTitle": "deadline",
+                    "listTitle": "Done",
                     "listItems": []
                 },
             ]
