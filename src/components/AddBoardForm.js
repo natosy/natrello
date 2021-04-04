@@ -1,7 +1,7 @@
 import { Form } from 'react-bootstrap'
 import { useState } from 'react'
 
-const AddBoard = ({ setBoardData }) => {
+const AddBoardForm = ({ setBoardData }) => {
 
     const [error, setError] = useState(false)
     const [title, setTitle] = useState('')
@@ -66,4 +66,4 @@ const AddBoard = ({ setBoardData }) => {
     )
 }
 
-export default AddBoard
+export default AddBoardForm

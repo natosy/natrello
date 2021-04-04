@@ -1,7 +1,7 @@
 import { Container, Accordion } from 'react-bootstrap'
 
 import BoardCard from './BoardCard'
-import AddBoard from './AddBoard'
+import AddBoardForm from './AddBoardForm'
 import { useState } from 'react'
 import BoardDummyData from '../data/BoardData'
 
@@ -32,7 +32,7 @@ const Home = () => {
                     return <BoardCard key={item.id} board={item} setBoardData={setBoardData} />
                 })}
             </Accordion>
-            <AddBoard boardData={boardData} setBoardData={setBoardData} />
+            <AddBoardForm boardData={boardData} setBoardData={setBoardData} />
         </Container>
     )
 }
