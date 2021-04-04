@@ -5,8 +5,6 @@ import ListItem from './ListItem'
 
 const List = ({ list, boardId, setBoardData }) => {
 
-
-
     const onDragOver = (e) => {
         e.preventDefault()
     }
@@ -19,14 +17,16 @@ const List = ({ list, boardId, setBoardData }) => {
         if (listId === newListId) return
 
         const boardData = JSON.parse(localStorage.getItem('boards'))
-        const boardId = localStorage.getItem('activeKey')
+        const currentBoardId = boardData.findIndex(b => b.id == boardId)
+        console.log(boardId)
+        const actualListId = boardData[currentBoardId].lists.findIndex(l => l.listId === listId)
 
         // get current list of items and remove dropped item
-        var listItems = boardData[boardId].lists[listId].listItems
+        var listItems = boardData[currentBoardId].lists[actualListId].listItems
         listItems = listItems.filter((item) => item.uniqueId !== droppedItem.uniqueId)
 
-        // replace list after dropping item 
-        boardData[boardId].lists[listId].listItems = listItems
+        // replace list after deleting item 
+        boardData[currentBoardId].lists[actualListId].listItems = listItems
         setBoardData(boardData)
         console.log(boardData)
 
@@ -34,8 +34,10 @@ const List = ({ list, boardId, setBoardData }) => {
         console.log(droppedItem)
         droppedItem.listId = newListId
 
+        const actualNewListId = boardData[currentBoardId].lists.findIndex(l => l.listId === newListId)
+
         // add updated item into new list
-        boardData[boardId].lists[newListId].listItems.push(droppedItem)
+        boardData[currentBoardId].lists[actualNewListId].listItems.push(droppedItem)
 
         // save deletion and addition into localstorage
         localStorage.setItem('boards', JSON.stringify(boardData))
@@ -53,7 +55,7 @@ const List = ({ list, boardId, setBoardData }) => {
                 return <ListItem key={index} item={item} onDragOver={onDragOver} onDrop={onDrop} />
             })}
             <Row>
-                <AddListItemForm boardId={boardId} list={list} setBoardData={setBoardData} />
+                <AddListItemForm boardId={boardId} listId={list.listId} setBoardData={setBoardData} />
             </Row>
         </Col>
     )

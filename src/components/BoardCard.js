@@ -22,17 +22,30 @@ const BoardToggle = ({ children, eventKey, callback }) => {
     )
 }
 
+
+
 /**
  * Board Card which shows the board's title, description, and board (when toggled to open)
  */
 const BoardCard = ({ board, setBoardData }) => {
+    const handleDeleteBoard = () => {
+        var boardData = JSON.parse(localStorage.getItem('boards'))
+        boardData = boardData.filter((b) => b.id !== board.id)
+
+        localStorage.setItem('boards', JSON.stringify(boardData))
+        setBoardData(boardData)
+    }
 
     return (
         <Card>
-            <Card.Body>
-                <Card.Title>
+            <Card.Header>
+                <h4>
                     {board.title}
-                </Card.Title>
+                </h4>
+                <button>Edit Board</button>
+                <button onClick={handleDeleteBoard}>Delete Board</button>
+            </Card.Header>
+            <Card.Body>
                 <Card.Text>
                     {board.description}
                 </Card.Text>

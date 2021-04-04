@@ -21,15 +21,16 @@ const Home = () => {
     const handleBoardToggle = (e) => {
         setActiveKey(e);
         localStorage.setItem('activeKey', e)
-
     }
 
     return (
         <Container fluid>
             <h1>Natrello</h1>
             <Accordion defaultActiveKey={activeKey} onSelect={(e) => handleBoardToggle(e)}>
-                {boardData.map((item, index) => {
-                    return <BoardCard key={item.id} board={item} setBoardData={setBoardData} />
+                {boardData.map((board, index) => {
+                    return (
+                        <BoardCard key={board.id} board={board} setBoardData={setBoardData} />
+                    )
                 })}
             </Accordion>
             <AddBoardForm boardData={boardData} setBoardData={setBoardData} />

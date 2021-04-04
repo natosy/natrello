@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Form } from 'react-bootstrap'
 
-const AddListItemForm = ({ boardId, list, setBoardData }) => {
+const AddListItemForm = ({ boardId, listId, setBoardData }) => {
 
     const [description, setDescription] = useState('')
 
@@ -12,8 +12,14 @@ const AddListItemForm = ({ boardId, list, setBoardData }) => {
         if (description === '') return
 
         const boardData = JSON.parse(localStorage.getItem('boards'))
-        boardData[boardId].lists[list.listId].listItems.push({
-            listId: list.listId,
+        
+        // get actual indexes of board and list currently being edited (differs from id stored in data)
+        const actualBoardId = boardData.findIndex(b => b.id === boardId)
+        const actualListId = boardData[actualBoardId].lists.findIndex(l => l.listId === listId)
+
+        // push new item into list (using actual listId stored in data)
+        boardData[actualBoardId].lists[actualListId].listItems.push({
+            listId: listId,
             uniqueId: new Date().valueOf(),
             description: description
         })

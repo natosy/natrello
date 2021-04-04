@@ -2,63 +2,63 @@ const BoardData =
     [
         {
             id: 0,
-            title: "board 1",
-            description: "description 1",
+            title: "Board 1",
+            description: "Description 1",
             lists: [
                 {
                     listId: 0,
-                    listTitle: "todo",
+                    listTitle: "Todo",
                     listItems: [
                         {
                             listId: 0,
                             uniqueId: 0,
-                            description: "todo 1"
+                            description: "Todo 1"
                         }, {
                             listId: 0,
                             uniqueId: 1,
-                            description: "todo 2"
+                            description: "Todo 2"
                         }, {
                             listId: 0,
                             uniqueId: 2,
-                            description: "todo 3"
+                            description: "Todo 3"
                         }
                     ]
                 },
                 {
                     listId: 1,
-                    listTitle: "event",
+                    listTitle: "In Progress",
                     listItems: [
                         {
                             listId: 1,
                             uniqueId: 3,
-                            description: "event 1"
+                            description: "In Progress 1"
                         }, {
                             listId: 1,
                             uniqueId: 4,
-                            description: "event 2"
+                            description: "In Progress 2"
                         }, {
                             listId: 1,
                             uniqueId: 5,
-                            description: "event 3"
+                            description: "In Progress 3"
                         }
                     ]
                 },
                 {
                     listId: 2,
-                    listTitle: "deadline",
+                    listTitle: "Done",
                     listItems: [
                         {
                             listId: 2,
                             uniqueId: 6,
-                            description: "deadline 1"
+                            description: "Done 1"
                         }, {
                             listId: 2,
                             uniqueId: 7,
-                            description: "deadline 2"
+                            description: "Done 2"
                         }, {
                             listId: 2,
                             uniqueId: 8,
-                            description: "deadline 3"
+                            description: "Done 3"
                         }
                     ]
                 },
@@ -66,63 +66,63 @@ const BoardData =
         },
         {
             id: 1,
-            title: "board 2",
-            description: "description 1",
+            title: "Board 2",
+            description: "Description 1",
             lists: [
                 {
                     listId: 0,
-                    listTitle: "todo",
+                    listTitle: "Todo",
                     listItems: [
                         {
                             listId: 0,
                             uniqueId: 0,
-                            description: "todo 1"
+                            description: "Todo 1"
                         }, {
                             listId: 0,
                             uniqueId: 1,
-                            description: "todo 2"
+                            description: "Todo 2"
                         }, {
                             listId: 0,
                             uniqueId: 2,
-                            description: "todo 3"
+                            description: "Todo 3"
                         }
                     ]
                 },
                 {
                     listId: 1,
-                    listTitle: "event",
+                    listTitle: "In Progress",
                     listItems: [
                         {
                             listId: 1,
                             uniqueId: 3,
-                            description: "event 1"
+                            description: "In Progress 1"
                         }, {
                             listId: 1,
                             uniqueId: 4,
-                            description: "event 2"
+                            description: "In Progress 2"
                         }, {
                             listId: 1,
                             uniqueId: 5,
-                            description: "event 3"
+                            description: "In Progress 3"
                         }
                     ]
                 },
                 {
                     listId: 2,
-                    listTitle: "deadline",
+                    listTitle: "Done",
                     listItems: [
                         {
                             listId: 2,
                             uniqueId: 6,
-                            description: "deadline 1"
+                            description: "Done 1"
                         }, {
                             listId: 2,
                             uniqueId: 7,
-                            description: "deadline 2"
+                            description: "Done 2"
                         }, {
                             listId: 2,
                             uniqueId: 8,
-                            description: "deadline 3"
+                            description: "Done 3"
                         }
                     ]
                 },
@@ -130,63 +130,63 @@ const BoardData =
         },
         {
             id: 2,
-            title: "board 3",
-            description: "description 1",
+            title: "Board 3",
+            description: "Description 1",
             lists: [
                 {
                     listId: 0,
-                    listTitle: "todo",
+                    listTitle: "Todo",
                     listItems: [
                         {
                             listId: 0,
                             uniqueId: 0,
-                            description: "todo 1"
+                            description: "Todo 1"
                         }, {
                             listId: 0,
                             uniqueId: 1,
-                            description: "todo 2"
+                            description: "Todo 2"
                         }, {
                             listId: 0,
                             uniqueId: 2,
-                            description: "todo 3"
+                            description: "Todo 3"
                         }
                     ]
                 },
                 {
                     listId: 1,
-                    listTitle: "event",
+                    listTitle: "In Progress",
                     listItems: [
                         {
                             listId: 1,
                             uniqueId: 3,
-                            description: "event 1"
+                            description: "In Progress 1"
                         }, {
                             listId: 1,
                             uniqueId: 4,
-                            description: "event 2"
+                            description: "In Progress 2"
                         }, {
                             listId: 1,
                             uniqueId: 5,
-                            description: "event 3"
+                            description: "In Progress 3"
                         }
                     ]
                 },
                 {
                     listId: 2,
-                    listTitle: "deadline",
+                    listTitle: "Done",
                     listItems: [
                         {
                             listId: 2,
                             uniqueId: 6,
-                            description: "deadline 1"
+                            description: "Done 1"
                         }, {
                             listId: 2,
                             uniqueId: 7,
-                            description: "deadline 2"
+                            description: "Done 2"
                         }, {
                             listId: 2,
                             uniqueId: 8,
-                            description: "deadline 3"
+                            description: "Done 3"
                         }
                     ]
                 },
