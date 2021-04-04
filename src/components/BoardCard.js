@@ -24,19 +24,19 @@ const BoardToggle = ({ children, eventKey, callback }) => {
 /**
  * Board Card which shows the board's title, description, and board (when toggled to open)
  */
-const BoardCard = ({ boardId }) => {
+const BoardCard = ({ boardData }) => {
     return (
         <Card>
             <Card.Body>
                 <Card.Title>
-                    Title
-                    </Card.Title>
+                    {boardData.title}
+                </Card.Title>
                 <Card.Text>
-                    Test
-                    </Card.Text>
-                <BoardToggle eventKey={boardId} />
-                <Accordion.Collapse eventKey={boardId}>
-                    <Board />
+                    {boardData.description}
+                </Card.Text>
+                <BoardToggle eventKey={boardData.id.toString()} />
+                <Accordion.Collapse eventKey={boardData.id.toString()}>
+                    <Board lists={boardData.lists} />
                 </Accordion.Collapse>
             </Card.Body>
         </Card>

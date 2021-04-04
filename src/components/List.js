@@ -1,11 +1,13 @@
 import { Container, Col } from 'react-bootstrap'
 
-const List = () => {
+const List = ({ list }) => {
     return (
         <Col>
+            {list.listTitle}
             <ul>
-                <li>item 1</li>
-                <li>item 2</li>
+                {list.listItems.map((item, index) => {
+                    return <li key={index}>{item}</li>
+                })}
             </ul>
         </Col>
     )
