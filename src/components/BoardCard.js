@@ -1,5 +1,7 @@
 import { useContext } from 'react'
 import { Card, Accordion, AccordionContext, useAccordionToggle } from 'react-bootstrap'
+import EdiText from 'react-editext'
+import { getBoardDataAfterEditBoard, saveBoard } from '../util/Util'
 import Board from './Board'
 
 /**
@@ -12,7 +14,6 @@ const BoardToggle = ({ children, eventKey, callback }) => {
         eventKey,
         () => callback && callback(eventKey))
 
-
     const isCurrentEventKey = currentEventKey === eventKey
 
     return (
@@ -21,8 +22,6 @@ const BoardToggle = ({ children, eventKey, callback }) => {
         </button>
     )
 }
-
-
 
 /**
  * Board Card which shows the board's title, description, and board (when toggled to open)
@@ -36,19 +35,48 @@ const BoardCard = ({ board, setBoardData }) => {
         setBoardData(boardData)
     }
 
+    const handleBoardEdit = (title, description) => {
+        saveBoard(
+            getBoardDataAfterEditBoard(board.id, title, description),
+            setBoardData
+        )
+    }
+
     return (
         <Card>
             <Card.Header>
                 <h4>
-                    {board.title}
+                    <EdiText
+                        startEditingOnFocus
+                        cancelOnUnfocus
+                        submitOnEnter
+                        cancelOnEscape
+                        editButtonClassName='edit-buttons'
+                        // saveButtonClassName='edit-buttons'
+                        // cancelButtonClassName='edit-buttons'
+                        validation={e => e.length > 0}
+                        value={board.title}
+                        onSave={(e) => handleBoardEdit(e, board.description)}
+                        editOnViewClick={true}
+                    />
                 </h4>
                 <button>Edit Board</button>
                 <button onClick={handleDeleteBoard}>Delete Board</button>
             </Card.Header>
             <Card.Body>
-                <Card.Text>
-                    {board.description}
-                </Card.Text>
+                <EdiText
+                    startEditingOnFocus
+                    cancelOnUnfocus
+                    submitOnEnter
+                    cancelOnEscape
+                    editButtonClassName='edit-buttons'
+                    // saveButtonClassName='edit-buttons'
+                    // cancelButtonClassName='edit-buttons'
+                    validation={e => e.length > 0}
+                    value={board.description}
+                    onSave={(e) => handleBoardEdit(board.title, e)}
+                    editOnViewClick={true}
+                />
                 <BoardToggle eventKey={board.id.toString()} />
                 <Accordion.Collapse eventKey={board.id.toString()}>
                     <Board lists={board.lists} boardId={board.id} setBoardData={setBoardData} />

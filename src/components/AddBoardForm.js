@@ -1,11 +1,13 @@
 import { Form } from 'react-bootstrap'
 import { useState } from 'react'
+import { getBoardData, saveBoard } from '../util/Util'
 
 const AddBoardForm = ({ setBoardData }) => {
 
-    const [error, setError] = useState(false)
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
+
+    const [error, setError] = useState(false)
 
     const handleAddBoardSubmit = (e) => {
         // prevents page refresh
@@ -13,44 +15,44 @@ const AddBoardForm = ({ setBoardData }) => {
 
         // checks for empty title (still need to modify error message)
         if (title === '') {
-            console.log(error)
+            console.log('empty board creation not allowed')
             e.preventDefault()
             setError(true)
             return
         }
-        
+
         setError(false)
 
-        const boardData = JSON.parse(localStorage.getItem('boards'))
-        const newId = boardData.length === 0
-            ? 0
-            : boardData[boardData.length - 1].id + 1
+        const boardData = getBoardData()
+
         boardData.push({
-            "id": newId,
-            "title": title,
-            "description": description,
-            "lists": [
+            id: new Date().valueOf(),
+            title: title,
+            description: description,
+            lists: [
                 {
-                    "listId": 0,
-                    "listTitle": "To-Do",
-                    "listItems": []
+                    listId: new Date().valueOf() + 1,
+                    listTitle: "To-Do",
+                    listCapacity: 10,
+                    listItems: []
                 },
                 {
-                    "listId": 1,
-                    "listTitle": "In Progress",
-                    "listItems": []
+                    listId: new Date().valueOf() + 2,
+                    listTitle: "In Progress",
+                    listCapacity: 10,
+                    listItems: []
                 },
                 {
-                    "listId": 2,
-                    "listTitle": "Done",
-                    "listItems": []
+                    listId: new Date().valueOf() + 3,
+                    listTitle: "Done",
+                    listCapacity: 10,
+                    listItems: []
                 },
             ]
         })
 
         // saves to localstorage
-        localStorage.setItem('boards', JSON.stringify(boardData))
-        setBoardData(boardData)
+        saveBoard(boardData, setBoardData)
 
         // resets fields after submitting
         setTitle('')
