@@ -9,61 +9,19 @@ const BoardData =
                     listId: 0,
                     listCapacity: 10,
                     listTitle: "To-Do",
-                    listItems: [
-                        {
-                            listId: 0,
-                            uniqueId: 0,
-                            description: "To-Do 1"
-                        }, {
-                            listId: 0,
-                            uniqueId: 1,
-                            description: "To-Do 2"
-                        }, {
-                            listId: 0,
-                            uniqueId: 2,
-                            description: "To-Do 3"
-                        }
-                    ]
+                    listItems: []
                 },
                 {
                     listId: 1,
                     listCapacity: 10,
                     listTitle: "In Progress",
-                    listItems: [
-                        {
-                            listId: 1,
-                            uniqueId: 3,
-                            description: "In Progress 1"
-                        }, {
-                            listId: 1,
-                            uniqueId: 4,
-                            description: "In Progress 2"
-                        }, {
-                            listId: 1,
-                            uniqueId: 5,
-                            description: "In Progress 3"
-                        }
-                    ]
+                    listItems: []
                 },
                 {
                     listId: 2,
                     listCapacity: 10,
                     listTitle: "Done",
-                    listItems: [
-                        {
-                            listId: 2,
-                            uniqueId: 6,
-                            description: "Done 1"
-                        }, {
-                            listId: 2,
-                            uniqueId: 7,
-                            description: "Done 2"
-                        }, {
-                            listId: 2,
-                            uniqueId: 8,
-                            description: "Done 3"
-                        }
-                    ]
+                    listItems: []
                 },
             ]
         },

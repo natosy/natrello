@@ -1,9 +1,9 @@
 import { Row, Card } from 'react-bootstrap'
+import AddListForm from './AddListForm'
 
 import List from './List'
 
 const Board = ({ lists, boardId, setBoardData }) => {
-    // lists.map((item, index) => console.log(item))
     return (
         <Card.Body>
             <Row>
@@ -11,6 +11,7 @@ const Board = ({ lists, boardId, setBoardData }) => {
                     return <List key={item.listId} list={item} boardId={boardId} setBoardData={setBoardData} />
                 })}
             </Row>
+            <AddListForm boardId={boardId} setBoardData={setBoardData} />
         </Card.Body>
     )
 }

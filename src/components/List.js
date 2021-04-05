@@ -1,7 +1,10 @@
 import { Col, Row } from 'react-bootstrap'
 import EdiText from 'react-editext'
 
-import { saveBoard, getBoardDataAfterRemoveItem, getBoardDataAfterAddItem, hasReachedListLimit, getBoardDataAfterEditItem, getBoardWithChangedListCapacity } from '../util/Util'
+import {
+    saveBoard, getBoardDataAfterRemoveItem, getBoardDataAfterAddItem, hasReachedListLimit, getBoardDataAfterEditItem, getBoardAfterEditListCapacity,
+    getBoardAfterEditListTitle
+} from '../util/Util'
 import AddListItemForm from './AddListItemForm'
 import ListItem from './ListItem'
 
@@ -36,20 +39,17 @@ const List = ({ list, boardId, setBoardData }) => {
             setBoardData)
     }
 
-    // can abstract this into another function as onDrop also requires this functionality
     const handleDeleteItem = (listId, uniqueId) => {
         saveBoard(
             getBoardDataAfterRemoveItem(boardId, listId, uniqueId),
             setBoardData)
     }
 
-    const handleEditItem = (itemUniqueId, e) => {
+    const handleEditItem = (itemUniqueId, description) => {
         saveBoard(
-            getBoardDataAfterEditItem(boardId, list.listId, itemUniqueId, e),
+            getBoardDataAfterEditItem(boardId, list.listId, itemUniqueId, description),
             setBoardData
         )
-
-        console.log(e, itemUniqueId)
     }
 
     const size = list.listItems.length
@@ -58,14 +58,33 @@ const List = ({ list, boardId, setBoardData }) => {
     // ensure that capacity doesnt go below current capacity
     const handleListCapacityChange = (capacity) => {
         saveBoard(
-            getBoardWithChangedListCapacity(boardId, list.listId, capacity), setBoardData
+            getBoardAfterEditListCapacity(boardId, list.listId, capacity), setBoardData
+        )
+    }
+
+    const handleListTitleChange = (title) => {
+        saveBoard(
+            getBoardAfterEditListTitle(boardId, list.listId, title), setBoardData
         )
     }
     return (
         <Col onDragOver={onDragOver} onDrop={() => onDrop(list.listId)} xs={12} sm={6} md={4} lg={3}>
             <Row>
                 <h6>
-                    {list.listTitle}
+                    <EdiText
+                        startEditingOnFocus
+                        cancelOnUnfocus
+                        submitOnEnter
+                        cancelOnEscape
+                        editButtonClassName='edit-buttons'
+                        saveButtonClassName='edit-buttons'
+                        cancelButtonClassName='edit-buttons'
+                        validation={(e) => e.length > 0}
+                        value={list.listTitle}
+                        onSave={(e) => handleListTitleChange(e)}
+                        editOnViewClick={true}
+                    />
+
                 </h6>
                 <h6>
                     {size}/

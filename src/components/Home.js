@@ -1,8 +1,6 @@
 import { Container, Accordion } from 'react-bootstrap'
 import { useState } from 'react'
 
-import EdiText from 'react-editext'
-
 import BoardCard from './BoardCard'
 import AddBoardForm from './AddBoardForm'
 import BoardDummyData from '../data/BoardData'
@@ -39,9 +37,6 @@ const Home = () => {
                 })}
             </Accordion>
             <AddBoardForm boardData={boardData} setBoardData={setBoardData} />
-            <div>
-                <EdiText showButtonsOnHover value='hello' onSave={(e) => console.log(e)} editOnViewClick={true} />
-            </div>
         </Container>
     )
 }

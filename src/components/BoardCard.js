@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Card, Accordion, AccordionContext, useAccordionToggle } from 'react-bootstrap'
+import { Row, Card, Accordion, AccordionContext, useAccordionToggle } from 'react-bootstrap'
 import EdiText from 'react-editext'
 import { getBoardDataAfterEditBoard, saveBoard } from '../util/Util'
 import Board from './Board'
@@ -45,23 +45,24 @@ const BoardCard = ({ board, setBoardData }) => {
     return (
         <Card>
             <Card.Header>
-                <h4>
-                    <EdiText
-                        startEditingOnFocus
-                        cancelOnUnfocus
-                        submitOnEnter
-                        cancelOnEscape
-                        editButtonClassName='edit-buttons'
-                        // saveButtonClassName='edit-buttons'
-                        // cancelButtonClassName='edit-buttons'
-                        validation={e => e.length > 0}
-                        value={board.title}
-                        onSave={(e) => handleBoardEdit(e, board.description)}
-                        editOnViewClick={true}
-                    />
-                </h4>
-                <button>Edit Board</button>
-                <button onClick={handleDeleteBoard}>Delete Board</button>
+                <Row>
+                    <h4>
+                        <EdiText
+                            startEditingOnFocus
+                            cancelOnUnfocus
+                            submitOnEnter
+                            cancelOnEscape
+                            editButtonClassName='edit-buttons'
+                            // saveButtonClassName='edit-buttons'
+                            // cancelButtonClassName='edit-buttons'
+                            validation={e => e.length > 0}
+                            value={board.title}
+                            onSave={(e) => handleBoardEdit(e, board.description)}
+                            editOnViewClick={true}
+                        />
+                    </h4>
+                    <button onClick={handleDeleteBoard}>Delete Board</button>
+                </Row>
             </Card.Header>
             <Card.Body>
                 <EdiText

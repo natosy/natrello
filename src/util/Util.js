@@ -65,7 +65,7 @@ function hasReachedListLimit(boardId, listId) {
     return list.listItems.length >= list.listCapacity
 }
 
-function getBoardWithChangedListCapacity(boardId, listId, capacity) {
+function getBoardAfterEditListCapacity(boardId, listId, capacity) {
     const boardData = getBoardData()
     const boardIndex = getBoardIndex(boardId)
     const listIndex = getListIndex(boardId, listId)
@@ -73,13 +73,23 @@ function getBoardWithChangedListCapacity(boardId, listId, capacity) {
     return boardData
 }
 
+function getBoardAfterEditListTitle(boardId, listId, title) {
+    const boardData = getBoardData()
+    const boardIndex = getBoardIndex(boardId)
+    const listIndex = getListIndex(boardId, listId)
+    boardData[boardIndex].lists[listIndex].title = title
+    return boardData
+}
+
 export {
     getBoardData,
+    getBoardIndex,
     saveBoard,
     getBoardDataAfterRemoveItem,
     getBoardDataAfterAddItem,
     hasReachedListLimit,
     getBoardDataAfterEditBoard,
     getBoardDataAfterEditItem,
-    getBoardWithChangedListCapacity
+    getBoardAfterEditListCapacity,
+    getBoardAfterEditListTitle
 }
