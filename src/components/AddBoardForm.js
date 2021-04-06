@@ -1,4 +1,4 @@
-import { Form } from 'react-bootstrap'
+import { Button, Form } from 'react-bootstrap'
 import { useState } from 'react'
 import { getBoardData, saveBoard } from '../util/Util'
 
@@ -66,7 +66,7 @@ const AddBoardForm = ({ setBoardData }) => {
             <Form.Group controlId='description'>
                 <Form.Control value={description} onChange={(e) => setDescription(e.target.value)} placeholder='Description' />
             </Form.Group>
-            <button type='submit'>Add Board</button>
+            <Button type='submit'>Add Board</Button>
             {error ? 'Please enter minimally the board title in order to create a board' : ''}
         </Form>
     )

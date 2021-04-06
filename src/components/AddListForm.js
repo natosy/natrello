@@ -1,4 +1,4 @@
-import { Form } from 'react-bootstrap'
+import { Button, Form } from 'react-bootstrap'
 import { useState } from 'react'
 
 import { getBoardData, getBoardIndex, saveBoard } from '../util/Util'
@@ -44,7 +44,7 @@ const AddListForm = ({ boardId, setBoardData }) => {
                 <Form.Control value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Title' />
             </Form.Group>
 
-            <button type='submit'>Add List</button>
+            <Button type='submit'>Add List</Button>
             {error ? 'Please enter a non-empty list title in order to create a list' : ''}
         </Form>
     )

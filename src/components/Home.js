@@ -26,7 +26,7 @@ const Home = () => {
     return (
         <Container fluid>
             <h1>Natrello</h1>
-            <Accordion 
+            <Accordion
             // defaultActiveKey={activeKey} 
             // onSelect={(e) => handleBoardToggle(e)}
             >
@@ -36,7 +36,9 @@ const Home = () => {
                     )
                 })}
             </Accordion>
-            <AddBoardForm boardData={boardData} setBoardData={setBoardData} />
+            <div className='add-board-form'>
+                <AddBoardForm boardData={boardData} setBoardData={setBoardData} />
+            </div>
         </Container>
     )
 }

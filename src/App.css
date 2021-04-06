@@ -1,3 +1,110 @@
-.edit-buttons {
+.container-fluid {
+  display: flex;
+  background-color: #84a59d;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.accordion {
+  align-self: stretch;
+}
+
+.accordion .card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0efeb;
+  font-size: 1.5rem;
+  font-weight: bold;
+  /* max-width: 100%; */
+}
+
+/* 
+.accordion .card-header .styles_Editext__main_container__2Y-IL {
+
+} */
+
+.delete-board-button {
+  font-size: 1rem;
+}
+
+.edit-button {
   display: none;
+}
+
+.list-wrapper {
+  padding: 5px 5px;
+}
+
+.list {
+  background-color: #7d8597;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.list-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.list-stat {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.list-item {
+  width: inherit;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #b67495;
+  color: #f0efeb;
+  border-radius: 5px;
+  margin: 0.5rem 0;
+  padding: 10px 10px;
+  max-width: inherit;
+}
+
+.list-item .styles_Editext__main_container__2Y-IL {
+  max-width: 80%;
+}
+
+.delete-item-button {
+  background-color: transparent;
+  border-color: transparent;
+  opacity: 0%;
+}
+
+.delete-item-button:hover {
+  opacity: 100%;
+}
+
+.edit-view {
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  justify-content: flex-end;
+  word-wrap: break-word;
+}
+
+.view-container {
+  word-wrap: break-word;
+  max-width: 65vw;
+}
+
+.card-body .view-container {
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+.add-board-form {
+  padding-top: 1em;
+  align-self: flex-start;
 }

@@ -1,6 +1,7 @@
 import { Col, Row } from 'react-bootstrap'
 import EdiText from 'react-editext'
 
+
 import {
     saveBoard, getBoardDataAfterRemoveItem, getBoardDataAfterAddItem, hasReachedListLimit, getBoardDataAfterEditItem, getBoardAfterEditListCapacity,
     getBoardAfterEditListTitle
@@ -68,50 +69,46 @@ const List = ({ list, boardId, setBoardData }) => {
         )
     }
     return (
-        <Col onDragOver={onDragOver} onDrop={() => onDrop(list.listId)} xs={12} sm={6} md={4} lg={3}>
-            <Row>
-                <h6>
+        <Col className='list' onDragOver={onDragOver} onDrop={() => onDrop(list.listId)}>
+            <Row className='list-title'>
+                <Col>
                     <EdiText
                         startEditingOnFocus
                         cancelOnUnfocus
                         submitOnEnter
                         cancelOnEscape
-                        editButtonClassName='edit-buttons'
-                        saveButtonClassName='edit-buttons'
-                        cancelButtonClassName='edit-buttons'
+                        editButtonClassName='edit-button'
+                        saveButtonClassName='edit-button'
+                        cancelButtonClassName='edit-button'
                         validation={(e) => e.length > 0}
                         value={list.listTitle}
                         onSave={(e) => handleListTitleChange(e)}
                         editOnViewClick={true}
                     />
-
-                </h6>
-                <h6>
+                </Col>
+                <Col className='list-stat'>
                     {size}/
-                </h6>
-                <h6>
-                    <EdiText
+                    <EdiText className='edit-view'
                         startEditingOnFocus
                         cancelOnUnfocus
                         submitOnEnter
                         cancelOnEscape
-                        editButtonClassName='edit-buttons'
+                        viewContainerClassName='edit-view'
+                        editButtonClassName='edit-button'
                         type='number'
-                        // saveButtonClassName='edit-buttons'
-                        // cancelButtonClassName='edit-buttons'
+                        saveButtonClassName='edit-button'
+                        cancelButtonClassName='edit-button'
                         validation={(e) => parseInt(e) >= size}
                         value={capacity.toString()}
                         onSave={(e) => handleListCapacityChange(e)}
                         editOnViewClick={true}
                     />
-                </h6>
+                </Col>
             </Row>
             {list.listItems.map((item, index) => {
                 return <ListItem key={index} item={item} onDragOver={onDragOver} onDrop={onDrop} handleDeleteItem={handleDeleteItem} handleEditItem={handleEditItem} />
             })}
-            <Row>
-                <AddListItemForm boardId={boardId} listId={list.listId} setBoardData={setBoardData} />
-            </Row>
+            <AddListItemForm boardId={boardId} listId={list.listId} setBoardData={setBoardData} />
         </Col>
     )
 }

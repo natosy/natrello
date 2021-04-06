@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Form } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
 import { getBoardDataAfterAddItem, hasReachedListLimit, saveBoard } from '../util/Util'
 const AddListItemForm = ({ boardId, listId, setBoardData }) => {
 
@@ -39,7 +39,7 @@ const AddListItemForm = ({ boardId, listId, setBoardData }) => {
             <Form.Group controlId={listId}>
                 <Form.Control value={description} onChange={e => setDescription(e.target.value)} placeholder='New Item' />
             </Form.Group>
-            <button type='submit'>Add Item</button>
+            <Button variant='dark' type='submit'>Add Item</Button>
         </Form>
     )
 
