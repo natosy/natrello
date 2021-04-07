@@ -26,7 +26,7 @@ const AddListForm = ({ boardId, setBoardData }) => {
         const boardIndex = getBoardIndex(boardId)
         boardData[boardIndex].lists.push(
             {
-                listId: new Date().valueOf(),
+                listId: Math.floor(Math.random() * 1000000),
                 listTitle: title,
                 listCapacity: 10,
                 listItems: []

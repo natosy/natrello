@@ -2,6 +2,18 @@ function getBoardData() {
     return JSON.parse(localStorage.getItem('boards'))
 }
 
+function getListItem(boardId, listId, uniqueId) {
+    const boardData = getBoardData()
+    const boardIndex = getBoardIndex(boardId)
+    const listIndex = getListIndex(boardId, listId)
+    // console.log('board index', boardIndex) 
+    // console.log('list id', listId)
+    // console.log('listindex', listIndex)
+    const itemIndex = boardData[boardIndex].lists[listIndex].listItems.findIndex(i => i.uniqueId === uniqueId);
+    return boardData[boardIndex].lists[listIndex].listItems[itemIndex];
+}
+
+
 function getBoardIndex(boardId) {
     const boardData = getBoardData()
     return boardData.findIndex(b => b.id === boardId)
@@ -28,13 +40,21 @@ function getBoardDataAfterRemoveItem(boardId, listId, uniqueId) {
     return boardData
 }
 
-function getBoardDataAfterAddItem(boardId, listId, item) {
+// need to have index to include splicing 
+function getBoardDataAfterAddItem(boardId, listId, newIndex, item) {
     const boardData = getBoardData()
     const boardIndex = getBoardIndex(boardId)
     const listIndex = getListIndex(boardId, listId)
-    boardData[boardIndex].lists[listIndex].listItems.push(item)
-    console.log('added item with uniqueId', item.uniqueId)
+
+    if (newIndex === -1 || newIndex === null) {
+        boardData[boardIndex].lists[listIndex].listItems.push(item)
+        console.log('added item with uniqueId', item.uniqueId)
+    } else {
+        boardData[boardIndex].lists[listIndex].listItems.splice(newIndex, 0, item)
+        console.log('moved item with uniqueId', item.uniqueId)
+    }
     return boardData
+
 }
 
 function getBoardDataAfterEditBoard(boardId, title, description) {
@@ -91,5 +111,6 @@ export {
     getBoardDataAfterEditBoard,
     getBoardDataAfterEditItem,
     getBoardAfterEditListCapacity,
-    getBoardAfterEditListTitle
+    getBoardAfterEditListTitle,
+    getListItem
 }

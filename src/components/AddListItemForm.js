@@ -20,13 +20,13 @@ const AddListItemForm = ({ boardId, listId, setBoardData }) => {
         // create item to be added
         const itemToAdd = {
             listId: listId,
-            uniqueId: new Date().valueOf(),
+            uniqueId: Math.floor(Math.random() * 1000000),
             description: description
         }
 
         // add to board, set state and save to localstorage
         saveBoard(
-            getBoardDataAfterAddItem(boardId, listId, itemToAdd),
+            getBoardDataAfterAddItem(boardId, listId, -1, itemToAdd),
             setBoardData
         )
 

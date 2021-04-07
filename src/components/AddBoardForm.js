@@ -26,24 +26,24 @@ const AddBoardForm = ({ setBoardData }) => {
         const boardData = getBoardData()
 
         boardData.push({
-            id: new Date().valueOf(),
+            id: Math.floor(Math.random() * 1000000),
             title: title,
             description: description,
             lists: [
                 {
-                    listId: new Date().valueOf() + 1,
+                    listId: Math.floor(Math.random() * 1000000),
                     listTitle: "To-Do",
                     listCapacity: 10,
                     listItems: []
                 },
                 {
-                    listId: new Date().valueOf() + 2,
+                    listId: Math.floor(Math.random() * 1000000),
                     listTitle: "In Progress",
                     listCapacity: 10,
                     listItems: []
                 },
                 {
-                    listId: new Date().valueOf() + 3,
+                    listId: Math.floor(Math.random() * 1000000),
                     listTitle: "Done",
                     listCapacity: 10,
                     listItems: []
