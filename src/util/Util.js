@@ -33,7 +33,7 @@ function getBoardDataAfterRemoveItem(boardId, listId, uniqueId) {
     const listIndex = getListIndex(boardId, listId)
     const newListItems = boardData[boardIndex].lists[listIndex].listItems.filter((item) => item.uniqueId !== uniqueId)
     boardData[boardIndex].lists[listIndex].listItems = newListItems
-    console.log('deleted item with uniqueId', uniqueId)
+    // console.log('deleted item with uniqueId', uniqueId)
     return boardData
 }
 
@@ -45,10 +45,10 @@ function getBoardDataAfterAddItem(boardId, listId, newIndex, item) {
 
     if (newIndex === -1 || newIndex === null) {
         boardData[boardIndex].lists[listIndex].listItems.push(item)
-        console.log('added item with uniqueId', item.uniqueId)
+        // console.log('added item with uniqueId', item.uniqueId)
     } else {
         boardData[boardIndex].lists[listIndex].listItems.splice(newIndex, 0, item)
-        console.log('moved item with uniqueId', item.uniqueId)
+        // console.log('moved item with uniqueId', item.uniqueId)
     }
     return boardData
 }
@@ -93,7 +93,7 @@ function getBoardAfterEditListTitle(boardId, listId, title) {
     const boardData = getBoardData()
     const boardIndex = getBoardIndex(boardId)
     const listIndex = getListIndex(boardId, listId)
-    boardData[boardIndex].lists[listIndex].title = title
+    boardData[boardIndex].lists[listIndex].listTitle = title
     return boardData
 }
 

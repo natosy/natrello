@@ -1,4 +1,4 @@
-import { Button, Form } from 'react-bootstrap'
+import { Alert, Button, Form } from 'react-bootstrap'
 import { useState } from 'react'
 
 import { getBoardData, getBoardIndex, saveBoard } from '../util/Util'
@@ -14,7 +14,7 @@ const AddListForm = ({ boardId, setBoardData }) => {
 
         // checks for empty title (still need to modify error message)
         if (title === '') {
-            console.log('empty list title creation not allowed')
+            // console.log('empty list title creation not allowed')
             e.preventDefault()
             setError(true)
             return
@@ -44,7 +44,11 @@ const AddListForm = ({ boardId, setBoardData }) => {
                 <Form.Control value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Title' />
             </Form.Group>
             <Button variant='outline-dark' type='submit'>Add List</Button>
-            {error ? 'Please enter a non-empty list title in order to create a list' : ''}
+            {error
+                ? <Alert variant='light'>
+                    Please enter a non-empty list title in order to create a list
+            </Alert>
+                : ''}
         </Form>
     )
 }

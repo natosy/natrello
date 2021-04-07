@@ -15,7 +15,7 @@ const AddBoardForm = ({ setBoardData }) => {
 
         // checks for empty title (still need to modify error message)
         if (title === '') {
-            console.log('empty board creation not allowed')
+            // console.log('empty board creation not allowed')
             e.preventDefault()
             setError(true)
             return

@@ -1,30 +1,30 @@
 const BoardData =
     [
-        {
-            id: 0,
-            title: "Board 1",
-            description: "Description 1",
-            lists: [
-                {
-                    listId: 0,
-                    listCapacity: 10,
-                    listTitle: "To-Do",
-                    listItems: []
-                },
-                {
-                    listId: 1,
-                    listCapacity: 10,
-                    listTitle: "In Progress",
-                    listItems: []
-                },
-                {
-                    listId: 2,
-                    listCapacity: 10,
-                    listTitle: "Done",
-                    listItems: []
-                },
-            ]
-        },
+        // {
+        //     id: 0,
+        //     title: "Board 1",
+        //     description: "Description 1",
+        //     lists: [
+        //         {
+        //             listId: 0,
+        //             listCapacity: 10,
+        //             listTitle: "To-Do",
+        //             listItems: []
+        //         },
+        //         {
+        //             listId: 1,
+        //             listCapacity: 10,
+        //             listTitle: "In Progress",
+        //             listItems: []
+        //         },
+        //         {
+        //             listId: 2,
+        //             listCapacity: 10,
+        //             listTitle: "Done",
+        //             listItems: []
+        //         },
+        //     ]
+        // },
         // {
         //     id: 1,
         //     title: "Board 2",

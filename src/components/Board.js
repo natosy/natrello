@@ -45,7 +45,7 @@ const Board = ({ lists, boardId, setBoardData }) => {
             getBoardDataAfterAddItem(boardId, destinationListId, destinationListItemIndex, draggedListItem),
             setBoardData)
 
-        console.log(draggedListItem)
+        // console.log(draggedListItem)
     }
 
 

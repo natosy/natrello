@@ -14,9 +14,6 @@ import ListItem from './ListItem'
 
 const List = ({ list, boardId, setBoardData }) => {
 
-    // const onDragOver = (e) => {
-    //     e.preventDefault()
-    // }
     const handleDeleteItem = (listId, uniqueId) => {
         saveBoard(
             getBoardDataAfterRemoveItem(boardId, listId, uniqueId),
@@ -41,15 +38,13 @@ const List = ({ list, boardId, setBoardData }) => {
     }
 
     const handleListTitleChange = (title) => {
+        // console.log(title)
         saveBoard(
             getBoardAfterEditListTitle(boardId, list.listId, title), setBoardData
         )
     }
     return (
-        <Col className='list' 
-        // onDragOver={onDragOver} onDrop={() => onDrop(list.listId)}
-        >
-
+        <Col className='list' >
             <Row className='list-title'>
                 <Col>
                     <EdiText

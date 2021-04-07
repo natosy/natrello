@@ -9,12 +9,12 @@ const AddListItemForm = ({ boardId, listId, setBoardData }) => {
         // prevents page refresh
         e.preventDefault()
         if (description === '') {
-            console.log('empty item creation not allowed')
+            // console.log('empty item creation not allowed')
             return
         }
 
         if (hasReachedListLimit(boardId, listId)) {
-            console.log('reached list limit and cannot add item')
+            // console.log('reached list limit and cannot add item')
             return
         }
         // create item to be added
