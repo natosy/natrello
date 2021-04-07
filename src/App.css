@@ -85,11 +85,7 @@
 .delete-item-button {
   background-color: transparent;
   border-color: transparent;
-  opacity: 0%;
-}
-
-.delete-item-button:hover {
-  opacity: 100%;
+  opacity: 50%;
 }
 
 .edit-view {
