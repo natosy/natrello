@@ -52,9 +52,7 @@ const BoardCard = ({ board, setBoardData }) => {
                     editContainerClassName='edit-container'
                     editButtonClassName='edit-button'
                     saveButtonClassName='edit-button'
-                    // saveButtonContent='Save'
                     cancelButtonClassName='edit-button'
-                    // cancelButtonContent='Cancel'
                     validation={e => e.length > 0}
                     value={board.title}
                     onSave={(e) => handleBoardEdit(e, board.description)}
@@ -63,21 +61,23 @@ const BoardCard = ({ board, setBoardData }) => {
                 <Button variant='outline-danger' className='delete-board-button' onClick={handleDeleteBoard}>Delete Board</Button>
             </Card.Header>
             <Card.Body>
-                <EdiText
-                    startEditingOnFocus
-                    cancelOnUnfocus
-                    submitOnEnter
-                    cancelOnEscape
-                    viewContainerClassName='view-container'
-                    editButtonClassName='edit-button'
-                    saveButtonClassName='edit-button'
-                    cancelButtonClassName='edit-button'
-                    validation={e => e.length > 0}
-                    value={board.description}
-                    onSave={(e) => handleBoardEdit(board.title, e)}
-                    editOnViewClick={true}
-                />
-                <BoardToggle eventKey={board.id.toString()} />
+                <div className='board-description'>
+                    <EdiText
+                        startEditingOnFocus
+                        cancelOnUnfocus
+                        submitOnEnter
+                        cancelOnEscape
+                        viewContainerClassName='view-container'
+                        editButtonClassName='edit-button'
+                        saveButtonClassName='edit-button'
+                        cancelButtonClassName='edit-button'
+                        validation={e => e.length > 0}
+                        value={board.description}
+                        onSave={(e) => handleBoardEdit(board.title, e)}
+                        editOnViewClick={true}
+                    />
+                    <BoardToggle eventKey={board.id.toString()} />
+                </div>
 
                 <Accordion.Collapse eventKey={board.id.toString()}>
                     <Board lists={board.lists} boardId={board.id} setBoardData={setBoardData} />

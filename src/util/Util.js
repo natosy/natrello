@@ -6,11 +6,8 @@ function getListItem(boardId, listId, uniqueId) {
     const boardData = getBoardData()
     const boardIndex = getBoardIndex(boardId)
     const listIndex = getListIndex(boardId, listId)
-    // console.log('board index', boardIndex) 
-    // console.log('list id', listId)
-    // console.log('listindex', listIndex)
-    const itemIndex = boardData[boardIndex].lists[listIndex].listItems.findIndex(i => i.uniqueId === uniqueId);
-    return boardData[boardIndex].lists[listIndex].listItems[itemIndex];
+    const itemIndex = boardData[boardIndex].lists[listIndex].listItems.findIndex(i => i.uniqueId === uniqueId)
+    return boardData[boardIndex].lists[listIndex].listItems[itemIndex]
 }
 
 
@@ -54,7 +51,6 @@ function getBoardDataAfterAddItem(boardId, listId, newIndex, item) {
         console.log('moved item with uniqueId', item.uniqueId)
     }
     return boardData
-
 }
 
 function getBoardDataAfterEditBoard(boardId, title, description) {

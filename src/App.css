@@ -1,6 +1,6 @@
 .container-fluid {
   display: flex;
-  background-color: #84a59d;
+  background-color: #7A82AB;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
@@ -21,10 +21,6 @@
   /* max-width: 100%; */
 }
 
-/* 
-.accordion .card-header .styles_Editext__main_container__2Y-IL {
-
-} */
 
 .delete-board-button {
   font-size: 1rem;
@@ -39,9 +35,18 @@
 }
 
 .list {
-  background-color: #7d8597;
+  background-color: #f0efeb;
   border-radius: 10px;
   padding: 10px;
+}
+
+.add-list-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: transparent;
 }
 
 .list-title {
@@ -64,7 +69,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #b67495;
+  background-color: #5F7557;
   color: #f0efeb;
   border-radius: 5px;
   margin: 0.5rem 0;
@@ -96,7 +101,7 @@
 
 .view-container {
   word-wrap: break-word;
-  max-width: 65vw;
+  max-width: 60vw;
 }
 
 .card-body .view-container {
@@ -106,5 +111,20 @@
 
 .add-board-form {
   padding-top: 1em;
-  align-self: flex-start;
+  align-self: stretch;
+}
+
+.add-board-alert {
+  background-color: rgba(153, 153, 153, 0.226);
+}
+
+.board-description {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.board-description .view-container {
+  max-width: 60vw;
+
 }

@@ -20,15 +20,15 @@ const Board = ({ lists, boardId, setBoardData }) => {
     const onDragEnd = (e) => {
 
         // prevent dragging if capacity is filled or if dragging to nowhere
-        if (!e.destination || 
+        if (!e.destination ||
             hasReachedListLimit(boardId, parseInt(e.destination.droppableId))
-            ) 
+        )
             return;
 
         const destinationListId = parseInt(e.destination.droppableId)
         const destinationListItemIndex = parseInt(e.destination.index)
 
-        
+
 
         // get item that is being dragged over
         const draggedListItem = getListItem(
@@ -42,7 +42,7 @@ const Board = ({ lists, boardId, setBoardData }) => {
         draggedListItem.listId = destinationListId;
 
         saveBoard(
-            getBoardDataAfterAddItem(boardId, destinationListId, destinationListItemIndex, draggedListItem), 
+            getBoardDataAfterAddItem(boardId, destinationListId, destinationListItemIndex, draggedListItem),
             setBoardData)
 
         console.log(draggedListItem)
@@ -81,9 +81,11 @@ const Board = ({ lists, boardId, setBoardData }) => {
                             <List list={item} boardId={boardId} setBoardData={setBoardData} />
                         </Col>
                     })}
+                    <Col>
+                        <AddListForm boardId={boardId} setBoardData={setBoardData} />
+                    </Col>
                 </Row>
             </DragDropContext>
-            <AddListForm boardId={boardId} setBoardData={setBoardData} />
         </Card.Body>
     )
 }
