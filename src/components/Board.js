@@ -45,39 +45,16 @@ const Board = ({ lists, boardId, setBoardData }) => {
             getBoardDataAfterAddItem(boardId, destinationListId, destinationListItemIndex, draggedListItem),
             setBoardData)
 
-        // console.log(draggedListItem)
     }
 
-
-    // const onDrop = (newListId) => {
-    //     const draggedItem = JSON.parse(localStorage.getItem('dragItem'))
-    //     const listId = draggedItem.listId
-    //     // don't do anything if drag and drop is on same list (otherwise will have annoying effect of adding again to the back of the list)
-    //     if (listId === newListId) return
-
-    //     
-    //     // delete from board, set state and save to local storage
-    //     saveBoard(
-    //         getBoardDataAfterRemoveItem(boardId, listId, draggedItem.uniqueId),
-    //         setBoardData)
-
-    //     // update item with new list id
-    //     draggedItem.listId = newListId
-
-    //     // add to board, set state and save to localstorage
-    //     saveBoard(
-    //         getBoardDataAfterAddItem(boardId, newListId, draggedItem),
-    //         setBoardData)
-    // }
 
     return (
         <Card.Body>
             <DragDropContext
-                // onDragStart={e => onDragStart(e)}
                 onDragEnd={e => onDragEnd(e)}>
                 <Row>
                     {lists.map((item, index) => {
-                        return <Col className='list-wrapper' xs={12} sm={6} md={4} lg={4} key={item.listId}>
+                        return <Col xs={12} sm={6} md={6} lg={6} key={item.listId}>
                             <List list={item} boardId={boardId} setBoardData={setBoardData} />
                         </Col>
                     })}

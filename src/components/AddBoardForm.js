@@ -1,4 +1,4 @@
-import { Row, Col, Button, Form, Alert } from 'react-bootstrap'
+import { Button, Form, Alert } from 'react-bootstrap'
 import { useState } from 'react'
 import { getBoardData, saveBoard } from '../util/Util'
 
@@ -59,30 +59,23 @@ const AddBoardForm = ({ setBoardData }) => {
         setDescription('')
     }
     return (
-        <Form onSubmit={handleAddBoardSubmit}>
-            <Row>
+        <div className='add-board-form'>
+            <Form onSubmit={handleAddBoardSubmit}>
+                <Form.Group controlId='title'>
+                    <Form.Control value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Title' />
+                </Form.Group>
+                <Form.Group controlId='description'>
+                    <Form.Control value={description} onChange={(e) => setDescription(e.target.value)} placeholder='Description' />
+                </Form.Group>
+                {error
+                    ? <Alert className='add-board-alert' variant='link'>
+                        Please enter minimally the board title in order to create a board.
+                    </Alert>
+                    : ''}
+                <Button variant='outline-dark' type='submit'>Add Board</Button>
 
-                <Col>
-                    <Form.Group controlId='title'>
-                        <Form.Control value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Title' />
-                    </Form.Group>
-                    <Form.Group controlId='description'>
-                        <Form.Control value={description} onChange={(e) => setDescription(e.target.value)} placeholder='Description' />
-                    </Form.Group>
-                    {error
-                        ? <Alert className='add-board-alert' variant='link'>
-                            Please enter minimally the board title in order to create a board.
-                        </Alert>
-                        : ''}
-                </Col>
-                <Col>
-                    <Row>
-                        <Button variant='outline-dark' type='submit'>Add Board</Button>
-
-                    </Row>
-                </Col>
-            </Row>
-        </Form>
+            </Form>
+        </div>
     )
 }
 

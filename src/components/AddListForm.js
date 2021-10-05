@@ -39,17 +39,21 @@ const AddListForm = ({ boardId, setBoardData }) => {
         setTitle('')
     }
     return (
-        <Form className='add-list-form' onSubmit={handleAddBoardSubmit}>
-            <Form.Group controlId={boardId}>
-                <Form.Control value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Title' />
-            </Form.Group>
-            <Button variant='outline-dark' type='submit'>Add List</Button>
+        <div>
+            <Form className='add-list-form' onSubmit={handleAddBoardSubmit}>
+
+                <Form.Group controlId={boardId}>
+                    <Form.Control value={title} onChange={(e) => setTitle(e.target.value)} placeholder='Title' />
+                </Form.Group>
+                <Button variant='outline-dark' type='submit'>Add List</Button>
+            </Form>
             {error
                 ? <Alert variant='light'>
                     Please enter a non-empty list title in order to create a list
-            </Alert>
+                </Alert>
                 : ''}
-        </Form>
+
+        </div>
     )
 }
 

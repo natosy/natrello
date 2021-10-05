@@ -18,27 +18,20 @@ const Home = () => {
 
     const [boardData, setBoardData] = useState(boards)
 
-    // const handleBoardToggle = (e) => {
-    //     setActiveKey(e);
-    //     localStorage.setItem('activeKey', e)
-    // }
-
     return (
         <Container fluid>
-            <h1>Natrello</h1>
-            <Accordion
-            // defaultActiveKey={activeKey} 
-            // onSelect={(e) => handleBoardToggle(e)}
-            >
+            <div className='row header'>
+                <h1>Natrello</h1>
+            </div>
+
+            <Accordion>
                 {boardData.map((board, index) => {
                     return (
                         <BoardCard key={board.id} board={board} setBoardData={setBoardData} />
                     )
                 })}
             </Accordion>
-            <div className='add-board-form'>
-                <AddBoardForm boardData={boardData} setBoardData={setBoardData} />
-            </div>
+            <AddBoardForm boardData={boardData} setBoardData={setBoardData} />
         </Container>
     )
 }

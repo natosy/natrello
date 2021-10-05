@@ -1,13 +1,21 @@
 .container-fluid {
   display: flex;
-  background-color: #7A82AB;
+  background-color: white;
   flex-direction: column;
-  align-items: center;
   min-height: 100vh;
 }
 
-.accordion {
-  align-self: stretch;
+.header {
+  padding: 10px;
+  background-color: #5F7557;
+  color: white;
+  justify-content: center;
+}
+
+.accordion .card {
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  margin: 20px 0px;
 }
 
 .accordion .card-header {
@@ -15,10 +23,13 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #f0efeb;
+  background-color: white;
   font-size: 1.5rem;
   font-weight: bold;
-  /* max-width: 100%; */
+}
+
+.accordion .card-body {
+  padding: 20px;
 }
 
 
@@ -30,23 +41,24 @@
   display: none;
 }
 
-.list-wrapper {
-  padding: 5px 5px;
-}
-
 .list {
-  background-color: #f0efeb;
+  background-color: white;
   border-radius: 10px;
-  padding: 10px;
+  padding: 20px;
+  margin: 10px;
+  filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.25));
 }
 
 .add-list-form {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  align-items: baseline;
+  column-gap: 20px;
   padding: 10px;
-  background-color: transparent;
+
+}
+
+.form-control {
+  margin-bottom: 0;
 }
 
 .list-title {
@@ -107,8 +119,11 @@
 }
 
 .add-board-form {
-  padding-top: 1em;
-  align-self: stretch;
+  padding: 1em;
+  display: block;
+  width: 400px;
+  background-color: white;
+  border-radius: 10px;
 }
 
 .add-board-alert {
@@ -123,5 +138,4 @@
 
 .board-description .view-container {
   max-width: 60vw;
-
 }
