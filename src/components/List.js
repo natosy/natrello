@@ -44,7 +44,7 @@ const List = ({ list, boardId, setBoardData }) => {
         )
     }
     return (
-        <Col className='list' >
+        <Col className='list'>
             <Row className='list-title'>
                 <Col>
                     <EdiText
