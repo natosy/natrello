@@ -27,7 +27,7 @@ const ListItem = ({ item, handleDeleteItem, handleEditItem, index }) => {
                         onSave={(e) => handleEditItem(item.uniqueId, e)}
                         editOnViewClick={true}
                     />
-                    <button className='delete-item-button' onClick={() => handleDeleteItem(item.listId, item.uniqueId)}>X</button>
+                    <i class='fa fa-times' onClick={() => handleDeleteItem(item.listId, item.uniqueId)}></i>
                 </div>
             )}
         </Draggable>

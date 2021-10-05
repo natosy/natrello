@@ -95,12 +95,6 @@
   max-width: 80%;
 }
 
-.delete-item-button {
-  background-color: transparent;
-  border-color: transparent;
-  opacity: 50%;
-}
-
 .edit-view {
   display: flex;
   flex-direction: row;
